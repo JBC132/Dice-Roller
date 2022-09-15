@@ -47,16 +47,24 @@ def roll_dice():
         ),
 
     }    
-    roll = input("Roll the dice? (Yes/No): ")
 
-    while roll.lower() == "Yes".lower():
-        dice1 = random.randint(1,6)
-        dice2 = random.randint(1,6)
+    while True:
 
-        print("Dice Rolled: {} and {}".format(dice1, dice2))
-        print("\n".join(dice_drawing[dice1]))
-        print("\n".join(dice_drawing[dice2]))
+        roll = input("Roll the dice? (Yes/No): ")
 
-        roll = input("Roll again? (Yes/No): ")
+        if roll.lower() == "Yes".lower():
+            dice1 = random.randint(1,6)
+            dice2 = random.randint(1,6)
+
+            print("Dice Rolled: {} and {}".format(dice1, dice2))
+            print("\n".join(dice_drawing[dice1]))
+            print("\n".join(dice_drawing[dice2]))
+        
+        elif roll.lower() == "No".lower():
+            print("Ending Program...")
+            break
+            
+        else:
+            print("Please input \"Yes\" or \"No\" \n")
 
 roll_dice()
